@@ -1,0 +1,33 @@
+﻿@model TestProject2.Models.ApplicationUser
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>User Deleted</h2>
+<h3>User has been delted from records.</h3>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(user => user.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(user => user.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+    @Html.ActionLink("Return to List", "Index")
+</div>
