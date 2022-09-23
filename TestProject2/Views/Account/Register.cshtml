@@ -61,6 +61,15 @@
         </div>
     </div>
     <div class="form-group">
+        @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <span><br />Admin: </span> @Html.RadioButtonFor(m => m.Role, "Admin")
+            <span><br />Teacher: </span> @Html.RadioButtonFor(m => m.Role, "Teacher")
+            <span><br />Student: </span> @Html.RadioButtonFor(m => m.Role, "Student")
+            <span><br />Guardian: </span> @Html.RadioButtonFor(m => m.Role, "Guardian")
+        </div>
+    </div>
+    <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>

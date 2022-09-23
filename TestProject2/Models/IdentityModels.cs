@@ -23,6 +23,7 @@ namespace TestProject2.Models
         public int StudentId { get; set; }
         public string DisplayName { get; set; }
         public int CurrentTier { get; set; }
+        public string Role { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

@@ -152,19 +152,38 @@ namespace TestProject2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { 
-                    UserName = model.Email, 
+                var user = new ApplicationUser {
+                    UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     DisplayName = model.DisplayName,
                     StudentId = model.StudentId,
-                    CurrentTier = model.CurrentTier
+                    CurrentTier = model.CurrentTier,
+                    Role = model.Role
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                    if (user.Role == "Admin")
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, "Admin");
+                    }
+                    else if (user.Role == "Teacher")
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, "Teacher");
+                    }
+                    else if (user.Role == "Guardian")
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, "Guardian");
+                    }
+                    else
+                    {
+                        await UserManager.AddToRoleAsync(user.Id, "Student");
+                    }
+
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

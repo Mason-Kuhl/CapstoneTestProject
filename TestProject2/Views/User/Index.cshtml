@@ -18,6 +18,7 @@
             <th>Student Id</th>
             <th>Email</th>
             <th>Id</th>
+            <th>Role</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -30,6 +31,7 @@
                 <td>@user.StudentId</td>
                 <td>@user.Email</td>
                 <td>@user.Id</td>
+                <td>@user.Role</td>
                 <td>
                     @Html.ActionLink("Delete", "Delete", new {id = user.Id})
                 </td>
