@@ -18,9 +18,11 @@ namespace TestProject2.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext _context;
 
         public AccountController()
         {
+            _context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -150,6 +152,7 @@ namespace TestProject2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser {
@@ -162,6 +165,25 @@ namespace TestProject2.Controllers
                     CurrentTier = model.CurrentTier,
                     Role = model.Role
                 };
+
+                //Parent to guardian relationship initializing
+                int idOne = 0;
+                int idTwo = 0;
+                int idThree = 0;
+
+                if (model.idOne != "")
+                {
+                    idOne = Int32.Parse(model.idOne);
+                }
+                if (model.idTwo != null)
+                {
+                    idTwo = Int32.Parse(model.idTwo);
+                }
+                if (model.idThree != null)
+                {
+                    idThree = Int32.Parse(model.idThree);
+                }
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -182,6 +204,32 @@ namespace TestProject2.Controllers
                     else
                     {
                         await UserManager.AddToRoleAsync(user.Id, "Student");
+                    }
+
+                    //Adding parent guardian relationship to db
+                    if (idOne != 0)
+                    {
+                        var guardian = new Guardian();
+                        guardian.UserId = user.Id;
+                        guardian.StudentId = idOne;
+                        _context.Guardians.Add(guardian);
+                        _context.SaveChanges();
+                    }
+                    if (idTwo != 0)
+                    {
+                        var guardian = new Guardian();
+                        guardian.UserId = user.Id;
+                        guardian.StudentId = idTwo;
+                        _context.Guardians.Add(guardian);
+                        _context.SaveChanges();
+                    }
+                    if (idThree != 0)
+                    {
+                        var guardian = new Guardian();
+                        guardian.UserId = user.Id;
+                        guardian.StudentId = idThree;
+                        _context.Guardians.Add(guardian);
+                        _context.SaveChanges();
                     }
 
 

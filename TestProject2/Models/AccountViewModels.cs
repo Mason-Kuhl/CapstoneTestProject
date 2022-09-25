@@ -99,6 +99,10 @@ namespace TestProject2.Models
 
         [Required]
         public string Role { get; set; }
+
+        public string idOne { get; set; }
+        public string idTwo { get; set; }
+        public string idThree { get; set; }
     }
 
     public class ResetPasswordViewModel
@@ -129,4 +133,5 @@ namespace TestProject2.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
 }

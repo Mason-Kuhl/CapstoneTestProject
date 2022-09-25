@@ -12,7 +12,7 @@ namespace TestProject2.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        StudentId = c.String(nullable: false),
+                        StudentId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

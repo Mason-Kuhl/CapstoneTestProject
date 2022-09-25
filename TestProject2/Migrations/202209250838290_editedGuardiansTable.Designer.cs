@@ -7,13 +7,13 @@ namespace TestProject2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CreatedGuardianTable : IMigrationMetadata
+    public sealed partial class editedGuardiansTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedGuardianTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(editedGuardiansTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202209250515004_CreatedGuardianTable"; }
+            get { return "202209250838290_editedGuardiansTable"; }
         }
         
         string IMigrationMetadata.Source

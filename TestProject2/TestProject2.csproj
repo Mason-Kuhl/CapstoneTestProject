@@ -194,9 +194,33 @@
     <Compile Include="Migrations\202209232155265_AddedRolesToRoleTable.Designer.cs">
       <DependentUpon>202209232155265_AddedRolesToRoleTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202209250515004_CreatedGuardianTable.cs" />
-    <Compile Include="Migrations\202209250515004_CreatedGuardianTable.Designer.cs">
-      <DependentUpon>202209250515004_CreatedGuardianTable.cs</DependentUpon>
+    <Compile Include="Migrations\202209250709382_CreatedGuardianTable.cs" />
+    <Compile Include="Migrations\202209250709382_CreatedGuardianTable.Designer.cs">
+      <DependentUpon>202209250709382_CreatedGuardianTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209250823251_addedUserIdColumnToGuardianTable.cs" />
+    <Compile Include="Migrations\202209250823251_addedUserIdColumnToGuardianTable.Designer.cs">
+      <DependentUpon>202209250823251_addedUserIdColumnToGuardianTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209250838290_editedGuardiansTable.cs" />
+    <Compile Include="Migrations\202209250838290_editedGuardiansTable.Designer.cs">
+      <DependentUpon>202209250838290_editedGuardiansTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209250845289_madeFieldsNullableGuardians.cs" />
+    <Compile Include="Migrations\202209250845289_madeFieldsNullableGuardians.Designer.cs">
+      <DependentUpon>202209250845289_madeFieldsNullableGuardians.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209250851446_changedIdToStringGuardiansTable.cs" />
+    <Compile Include="Migrations\202209250851446_changedIdToStringGuardiansTable.Designer.cs">
+      <DependentUpon>202209250851446_changedIdToStringGuardiansTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209250913375_deletedIdFromGuardians.cs" />
+    <Compile Include="Migrations\202209250913375_deletedIdFromGuardians.Designer.cs">
+      <DependentUpon>202209250913375_deletedIdFromGuardians.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202209250916449_addedIncrementingIdToGuardiansTable.cs" />
+    <Compile Include="Migrations\202209250916449_addedIncrementingIdToGuardiansTable.Designer.cs">
+      <DependentUpon>202209250916449_addedIncrementingIdToGuardiansTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -305,8 +329,26 @@
     <EmbeddedResource Include="Migrations\202209232155265_AddedRolesToRoleTable.resx">
       <DependentUpon>202209232155265_AddedRolesToRoleTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209250515004_CreatedGuardianTable.resx">
-      <DependentUpon>202209250515004_CreatedGuardianTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202209250709382_CreatedGuardianTable.resx">
+      <DependentUpon>202209250709382_CreatedGuardianTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209250823251_addedUserIdColumnToGuardianTable.resx">
+      <DependentUpon>202209250823251_addedUserIdColumnToGuardianTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209250838290_editedGuardiansTable.resx">
+      <DependentUpon>202209250838290_editedGuardiansTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209250845289_madeFieldsNullableGuardians.resx">
+      <DependentUpon>202209250845289_madeFieldsNullableGuardians.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209250851446_changedIdToStringGuardiansTable.resx">
+      <DependentUpon>202209250851446_changedIdToStringGuardiansTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209250913375_deletedIdFromGuardians.resx">
+      <DependentUpon>202209250913375_deletedIdFromGuardians.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209250916449_addedIncrementingIdToGuardiansTable.resx">
+      <DependentUpon>202209250916449_addedIncrementingIdToGuardiansTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
