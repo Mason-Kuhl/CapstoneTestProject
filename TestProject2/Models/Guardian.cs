@@ -7,5 +7,7 @@ namespace TestProject2.Models
 {
     public class Guardian
     {
+        public string Id { get; set; }        
+        public string StudentId { get; set; }
     }
 }
