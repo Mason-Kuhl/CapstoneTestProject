@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,9 +9,11 @@ namespace TestProject.Models
 {
     public class Question
     {
-        public int id { get; set; }
-        public String question { get; set; }
-        public String answer { get; set; }
-        public int pointValue { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public int? Tier { get; set; }
+        public string MathQuestion { get; set; }
+        public string Answer { get; set; }
     }
 }

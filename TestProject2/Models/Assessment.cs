@@ -12,8 +12,8 @@ namespace TestProject2.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public String Id { get; set; }
-        public String Title { get; set; }
+        public string Id { get; set; }
+        public string Title { get; set; }
         public int? Tier { get; set; }
         public int? AmountOfQuestions { get; set; }
         public List<Question> Questions { get; set; }

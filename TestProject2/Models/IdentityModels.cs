@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using TestProject.Models;
 
 namespace TestProject2.Models
 {
@@ -31,6 +32,8 @@ namespace TestProject2.Models
         public DbSet<Guardian> Guardians { get; set; }
         public DbSet<Assessment> Assessments { get; set; }
         public DbSet<Gradebook> Gradebooks { get; set; }
+        public DbSet<Question> Questions { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

@@ -222,9 +222,9 @@
     <Compile Include="Migrations\202209250916449_addedIncrementingIdToGuardiansTable.Designer.cs">
       <DependentUpon>202209250916449_addedIncrementingIdToGuardiansTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202209261914588_CreatedAssessmentAndGradebookTables.cs" />
-    <Compile Include="Migrations\202209261914588_CreatedAssessmentAndGradebookTables.Designer.cs">
-      <DependentUpon>202209261914588_CreatedAssessmentAndGradebookTables.cs</DependentUpon>
+    <Compile Include="Migrations\202209261929232_CreatedAssessGradebookAndQuestionTable.cs" />
+    <Compile Include="Migrations\202209261929232_CreatedAssessGradebookAndQuestionTable.Designer.cs">
+      <DependentUpon>202209261929232_CreatedAssessGradebookAndQuestionTable.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -357,8 +357,8 @@
     <EmbeddedResource Include="Migrations\202209250916449_addedIncrementingIdToGuardiansTable.resx">
       <DependentUpon>202209250916449_addedIncrementingIdToGuardiansTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202209261914588_CreatedAssessmentAndGradebookTables.resx">
-      <DependentUpon>202209261914588_CreatedAssessmentAndGradebookTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202209261929232_CreatedAssessGradebookAndQuestionTable.resx">
+      <DependentUpon>202209261929232_CreatedAssessGradebookAndQuestionTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

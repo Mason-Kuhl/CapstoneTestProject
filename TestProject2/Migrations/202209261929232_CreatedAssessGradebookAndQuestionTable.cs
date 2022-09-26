@@ -3,7 +3,7 @@ namespace TestProject2.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CreatedAssessmentAndGradebookTables : DbMigration
+    public partial class CreatedAssessGradebookAndQuestionTable : DbMigration
     {
         public override void Up()
         {
@@ -27,15 +27,15 @@ namespace TestProject2.Migrations
                 "dbo.Questions",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
-                        question = c.String(),
-                        answer = c.String(),
-                        pointValue = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
+                        Tier = c.Int(),
+                        MathQuestion = c.String(),
+                        Answer = c.String(),
                         Assessment_Id = c.String(maxLength: 128),
                         Gradebook_Id = c.Int(),
                         Gradebook_Id1 = c.Int(),
                     })
-                .PrimaryKey(t => t.id)
+                .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Assessments", t => t.Assessment_Id)
                 .ForeignKey("dbo.Gradebooks", t => t.Gradebook_Id)
                 .ForeignKey("dbo.Gradebooks", t => t.Gradebook_Id1)

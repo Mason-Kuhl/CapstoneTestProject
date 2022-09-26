@@ -7,13 +7,13 @@ namespace TestProject2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CreatedAssessmentAndGradebookTables : IMigrationMetadata
+    public sealed partial class CreatedAssessGradebookAndQuestionTable : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedAssessmentAndGradebookTables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CreatedAssessGradebookAndQuestionTable));
         
         string IMigrationMetadata.Id
         {
-            get { return "202209261914588_CreatedAssessmentAndGradebookTables"; }
+            get { return "202209261929232_CreatedAssessGradebookAndQuestionTable"; }
         }
         
         string IMigrationMetadata.Source
