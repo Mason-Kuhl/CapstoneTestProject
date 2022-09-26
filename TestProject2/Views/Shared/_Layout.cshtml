@@ -21,6 +21,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Student Portal", "StudentPortal", "Home")</li>
                     @if (User.IsInRole("Guardian"))
                     {
                         //shows all assessments done by attached student accounts
@@ -37,7 +38,7 @@
                     {
                         //shows a page with all available assessments
                         <li>@Html.ActionLink("Take Assessment", "About", "Home")</li>
-                        //shows all assessments that the student has taken
+                        //shows all assessments that the student has takens
                         <li>@Html.ActionLink("Review Assessments", "About", "Home")</li>
                     }
                     @if (User.IsInRole("Admin"))
