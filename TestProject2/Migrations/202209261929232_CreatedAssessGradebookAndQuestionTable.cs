@@ -22,26 +22,17 @@ namespace TestProject2.Migrations
                         TotalMinutes = c.Int(),
                     })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.Questions",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Tier = c.Int(),
-                        MathQuestion = c.String(),
-                        Answer = c.String(),
-                        Assessment_Id = c.String(maxLength: 128),
-                        Gradebook_Id = c.Int(),
-                        Gradebook_Id1 = c.Int(),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Assessments", t => t.Assessment_Id)
-                .ForeignKey("dbo.Gradebooks", t => t.Gradebook_Id)
-                .ForeignKey("dbo.Gradebooks", t => t.Gradebook_Id1)
-                .Index(t => t.Assessment_Id)
-                .Index(t => t.Gradebook_Id)
-                .Index(t => t.Gradebook_Id1);
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    Tier = c.Int(),
+                    MathQuestion = c.String(),
+                    Answer = c.String(),
+                })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Gradebooks",
