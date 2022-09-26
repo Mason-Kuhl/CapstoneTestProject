@@ -1,6 +1,6 @@
 ﻿@model TestProject2.Models.StudentPortalViewModel
 @{
-    ViewBag.Title = "StudentPortal";
+    ViewBag.Title = "Student Portal";
 }
 
 <h2>StudentPortal</h2>
@@ -9,7 +9,7 @@
    
  @foreach (var student in Model.StudentIds) 
  { 
-    <p>@student.StudentId</p>
+    <p>Student ID: @student.StudentId</p>
  }
 
 
