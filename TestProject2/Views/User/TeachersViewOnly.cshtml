@@ -33,7 +33,7 @@
     <tbody>
         @foreach (var user in Model)
         {
-            @if (user.Role == "Teacher")
+            if (user.Role == "Teacher")
             {
                 <tr>
                     <td>@user.FirstName</td>

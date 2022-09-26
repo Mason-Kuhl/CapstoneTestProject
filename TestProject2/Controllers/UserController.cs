@@ -38,6 +38,12 @@ namespace TestProject2.Controllers
             }
         }
 
+        public ViewResult TeachersViewOnly()
+        {
+            var users = _context.Users.ToList();
+                return View("TeachersViewOnly", users);
+        }
+
         public ActionResult Details(string id)
         {
             var user = _context.Users.SingleOrDefault( u => u.Id == id);
