@@ -226,6 +226,10 @@
     <Compile Include="Migrations\202209261929232_CreatedAssessGradebookAndQuestionTable.Designer.cs">
       <DependentUpon>202209261929232_CreatedAssessGradebookAndQuestionTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209261944049_SeededQuestionsTable.cs" />
+    <Compile Include="Migrations\202209261944049_SeededQuestionsTable.Designer.cs">
+      <DependentUpon>202209261944049_SeededQuestionsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assessment.cs" />
@@ -359,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209261929232_CreatedAssessGradebookAndQuestionTable.resx">
       <DependentUpon>202209261929232_CreatedAssessGradebookAndQuestionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209261944049_SeededQuestionsTable.resx">
+      <DependentUpon>202209261944049_SeededQuestionsTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
