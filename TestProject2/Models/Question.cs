@@ -7,6 +7,7 @@ namespace TestProject.Models
 {
     public class Question
     {
+        public int id { get; set; }
         public String question { get; set; }
         public String answer { get; set; }
         public int pointValue { get; set; }
