@@ -222,15 +222,22 @@
     <Compile Include="Migrations\202209250916449_addedIncrementingIdToGuardiansTable.Designer.cs">
       <DependentUpon>202209250916449_addedIncrementingIdToGuardiansTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209261914588_CreatedAssessmentAndGradebookTables.cs" />
+    <Compile Include="Migrations\202209261914588_CreatedAssessmentAndGradebookTables.Designer.cs">
+      <DependentUpon>202209261914588_CreatedAssessmentAndGradebookTables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assessment.cs" />
+    <Compile Include="Models\Drill.cs" />
+    <Compile Include="Models\Gradebook.cs" />
     <Compile Include="Models\Guardian.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudentPortalViewModel.cs" />
+    <Compile Include="Models\Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -349,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209250916449_addedIncrementingIdToGuardiansTable.resx">
       <DependentUpon>202209250916449_addedIncrementingIdToGuardiansTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209261914588_CreatedAssessmentAndGradebookTables.resx">
+      <DependentUpon>202209261914588_CreatedAssessmentAndGradebookTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

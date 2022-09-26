@@ -29,6 +29,8 @@ namespace TestProject2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Guardian> Guardians { get; set; }
+        public DbSet<Assessment> Assessments { get; set; }
+        public DbSet<Gradebook> Gradebooks { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
