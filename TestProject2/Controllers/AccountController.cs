@@ -171,7 +171,7 @@ namespace TestProject2.Controllers
                 int idTwo = 0;
                 int idThree = 0;
 
-                if (model.idOne != "")
+                if (model.idOne != null)
                 {
                     idOne = Int32.Parse(model.idOne);
                 }
