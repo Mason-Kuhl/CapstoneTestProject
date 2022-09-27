@@ -27,21 +27,33 @@ namespace TestProject2.Controllers
             return View(user);
         }
 
-        public ActionResult Drill(int studentId, int currentTier)
+        public ActionResult Drill()
         {
+            var id = User.Identity.GetUserId();
+            var user = _context.Users.Find(id);
+            var currentTier = user.CurrentTier;
+            var dvm = new DrillViewModel();
+
             var questionsList = _context.Questions.Where(t => t.Tier == currentTier).ToList();
             var drillQuestions = new List<Question> { };
-            var amountOfQuestions = questionsList.Count + 1;
+            var amountOfQuestions = questionsList.Count - 1;
             var count = 0;
             Random rnd = new Random();
 
-            while ( count < 5)
+            while (count < 5)
             {
-                int randomNumber = rnd.Next(1, amountOfQuestions);
+                int randomNumber = rnd.Next(0, amountOfQuestions);
                 drillQuestions.Add(questionsList[randomNumber]);
+                questionsList.RemoveAt(randomNumber);
+                amountOfQuestions--;
                 count++;
             }
-            return View(drillQuestions);
+
+            dvm.StudentId = user.StudentId;
+            dvm.CurrentTier = currentTier;
+            dvm.DrillQuestions = drillQuestions;
+
+            return View(dvm);
         }
     }
 }

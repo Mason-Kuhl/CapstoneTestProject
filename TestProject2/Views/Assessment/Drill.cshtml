@@ -1,7 +1,9 @@
-﻿
-@{
-    ViewBag.Title = "Drill";
-}
+﻿@model TestProject2.Models.DrillViewModel
+@{ ViewBag.Title = "Drill"; }
 
 <h2>Drill</h2>
 
+@foreach (var q in Model.DrillQuestions)
+{
+    <p>@q.MathQuestion</p>
+}
