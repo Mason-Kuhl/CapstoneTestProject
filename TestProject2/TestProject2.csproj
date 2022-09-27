@@ -231,6 +231,10 @@
     <Compile Include="Migrations\202209261944049_SeededQuestionsTable.Designer.cs">
       <DependentUpon>202209261944049_SeededQuestionsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202209272105340_AddedColumnsToQuestionsClass.cs" />
+    <Compile Include="Migrations\202209272105340_AddedColumnsToQuestionsClass.Designer.cs">
+      <DependentUpon>202209272105340_AddedColumnsToQuestionsClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assessment.cs" />
@@ -369,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209261944049_SeededQuestionsTable.resx">
       <DependentUpon>202209261944049_SeededQuestionsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202209272105340_AddedColumnsToQuestionsClass.resx">
+      <DependentUpon>202209272105340_AddedColumnsToQuestionsClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
