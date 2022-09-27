@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace TestProject.Models
+namespace TestProject2.Models
 {
     public class Question
     {
