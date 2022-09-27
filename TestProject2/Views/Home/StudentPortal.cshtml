@@ -3,13 +3,20 @@
     ViewBag.Title = "Student Portal";
 }
 
-<h2>StudentPortal</h2>
+<h1>StudentPortal</h1>
 
-<p>@Html.DisplayFor(model => model.User.Id)</p>
-   
- @foreach (var student in Model.StudentIds) 
- { 
-    <p>Student ID: @student.StudentId</p>
- }
+<h2>Hello, @Html.DisplayFor(model => model.User.FirstName) @Html.DisplayFor(model => model.User.LastName)</h2>
+
+
+@if (Model.User.Role == "Guardian")
+{
+    <h4>Your Children:</h4>
+    foreach (var student in Model.StudentIds)
+    {
+        <p>Student ID: @student.StudentId</p>
+    }
+}
+
+<h3>Gradebook</h3>
 
 

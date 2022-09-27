@@ -1,0 +1,27 @@
+﻿@model TestProject2.Models.ApplicationUser
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Homework page</h2>
+
+<h3>Drills</h3>
+
+<p>
+    Test and practice the knowledge of your current tier. Drills are quick 5 question quizzes that aren't grade. Use these 
+    to prepare for tests. Click 'Start Drill Now' to begin!
+</p>
+
+<form>
+    <input type="hidden" id="currentuserId" value="@Model.StudentId" runat="server" />
+    <input type="hidden" id="studentTier" value="@Model.CurrentTier" runat="server" />
+    <button type="submit" id="btnDrill" onclick="location.href='@Url.Action("Drill", "Assessment")'">Start Drill Now</button>
+</form>
+
+<h3>Tests</h3>
+<p>
+    This is a graded test to determine if you are ready to move on to the next tier! This will be timed and entered into 
+    your gradebook. Please click 'Start Drill Now' when you are ready to begin your test!
+</p>
+
+
