@@ -3,13 +3,17 @@
 
 <h2>Drill</h2>
 
-@{ var questionCounter = 1; }
+@{ 
+    var questionCounter = 1;
+    var answerList = new List<string> { };
+}
 
 @foreach (var q in Model.DrillQuestions)
 {
     <h4>Question @questionCounter:</h4>
+
+    <h7>@q.MathQuestion</h7><br />
+    <input type="text" id="txtAnswer_@questionCounter" /><br /><br /><br />
+
     { questionCounter = questionCounter + 1; }
-
-    <h7>@q.MathQuestion</h7><br /><br /><br />
-
 }
