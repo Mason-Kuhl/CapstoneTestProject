@@ -27,6 +27,7 @@ namespace TestProject2.Controllers
             return View(user);
         }
 
+        [HttpGet]
         public ActionResult Drill()
         {
             var id = User.Identity.GetUserId();
@@ -56,16 +57,25 @@ namespace TestProject2.Controllers
             return View(dvm);
         }
 
-        public ActionResult DrillResults(DrillViewModel dvm, string txtAnswer_1, string txtAnswer_2, string txtAnswer_3, string txtAnswer_4, string txtAnswer_5)
+        [HttpPost]
+        public ActionResult DrillResults(DrillViewModel dvm, string txtAnswer_1, string txtAnswer_2, string txtAnswer_3, string txtAnswer_4, string txtAnswer_5, int currentTier, int studentId, List<Question> questions)
         {
             string answer1 = txtAnswer_1;
             string answer2 = txtAnswer_2;
             string answer3 = txtAnswer_3;
             string answer4 = txtAnswer_4;
             string answer5 = txtAnswer_5;
-            var drillvm = dvm;
-            var qlist = dvm.DrillQuestions;
+            string correctAnswer1 = dvm.DrillQuestions[1].Answer;
+            
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Drill(DrillViewModel model)
+        {
+            ViewBag.question = model.DrillQuestions[1];
+
+            return View("DrillResults");
         }
     }
 }
