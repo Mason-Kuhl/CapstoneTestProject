@@ -8,12 +8,26 @@
     var answerList = new List<string> { };
 }
 
-@foreach (var q in Model.DrillQuestions)
-{
-    <h4>Question @questionCounter:</h4>
+@using (Html.BeginForm("DrillResults", "Assessment", FormMethod.Post)) {
 
-    <h7>@q.MathQuestion</h7><br />
-    <input type="text" id="txtAnswer_@questionCounter" /><br /><br /><br />
+    foreach (var q in Model.DrillQuestions)
+    {
+        <h4>Question @questionCounter:</h4>
+    
+        <h7>@q.MathQuestion</h7><br />
+        <input type="text" id="idTxtAnswer_@questionCounter" name="txtAnswer_@questionCounter"/><br /><br /><br />
+    
+        { questionCounter = questionCounter + 1; }
+    }
+ 
+    
 
-    { questionCounter = questionCounter + 1; }
+    @Html.HiddenFor(m => m.DrillQuestions)
+    @Html.HiddenFor(m => m.StudentId)
+    @Html.HiddenFor(m => m.CurrentTier)
+
+    <input type="submit" id="submit" value="Submit" />
+
 }
+
+

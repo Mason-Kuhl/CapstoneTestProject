@@ -315,6 +315,7 @@
     <Content Include="Views\Home\StudentPortal.cshtml" />
     <Content Include="Views\Assessment\Index.cshtml" />
     <Content Include="Views\Assessment\Drill.cshtml" />
+    <Content Include="Views\Assessment\DrillResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

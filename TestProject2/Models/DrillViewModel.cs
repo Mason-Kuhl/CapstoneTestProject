@@ -10,5 +10,6 @@ namespace TestProject2.Models
         public int StudentId { get; set; }
         public int CurrentTier { get; set; }
         public List<Question> DrillQuestions { get; set; }
+        public List<string> DrillAnswers { get; set; }
     }
 }

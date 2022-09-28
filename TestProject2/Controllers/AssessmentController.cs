@@ -55,5 +55,17 @@ namespace TestProject2.Controllers
 
             return View(dvm);
         }
+
+        public ActionResult DrillResults(DrillViewModel dvm, string txtAnswer_1, string txtAnswer_2, string txtAnswer_3, string txtAnswer_4, string txtAnswer_5)
+        {
+            string answer1 = txtAnswer_1;
+            string answer2 = txtAnswer_2;
+            string answer3 = txtAnswer_3;
+            string answer4 = txtAnswer_4;
+            string answer5 = txtAnswer_5;
+            var drillvm = dvm;
+            var qlist = dvm.DrillQuestions;
+            return View();
+        }
     }
 }
