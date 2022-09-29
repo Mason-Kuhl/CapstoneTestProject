@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TestProject2.Models;
-
+using Newtonsoft.Json;
 
 namespace TestProject2.Controllers
 {
@@ -71,9 +71,10 @@ namespace TestProject2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Drill(DrillViewModel model)
+        public ActionResult Drill(DrillViewModel model, List<Question> qList)
         {
-            ViewBag.question = model.DrillQuestions[1];
+            // the question_List variable is null, but if you hover over TempData you can see the list of questions
+            var question_List = TempData["question_List"] as List<Question>;
 
             return View("DrillResults");
         }

@@ -1,4 +1,6 @@
-﻿@model TestProject2.Models.DrillViewModel
+﻿@using TestProject2.Models
+@using Newtonsoft.Json
+@model TestProject2.Models.DrillViewModel
 @{ ViewBag.Title = "Drill"; }
 
 <h2>Drill</h2>
@@ -32,13 +34,22 @@
 
     @*@Html.Hidden("currentTier", Model.CurrentTier)
     @Html.Hidden("studentId", Model.StudentId)
-    @Html.Hidden("questions", Model.DrillQuestions)
+    @Html.Hidden("questions", Model.DrillQuestions)*@
 
+    @{ var modelList = new List<Question>(); }
 
     @for (int i = 0; i < Model.DrillQuestions.Count; i++)
     {
-        Html.Hidden("questions", Model.DrillQuestions[i]);
-    }*@
+        modelList.Add(Model.DrillQuestions[i]);
+    }
+
+    @{ Model.DrillQuestions = modelList; }
+
+    <input type="hidden" name="qList" value="@modelList" />
+
+    @{
+        TempData["question_List"] = Model.DrillQuestions;
+    }
 
     <input type="submit" value="Submit1"/>
 
