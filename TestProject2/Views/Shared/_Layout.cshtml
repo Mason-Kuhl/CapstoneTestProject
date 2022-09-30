@@ -21,30 +21,37 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Student Portal", "StudentPortal", "Home")</li>
-                    @if (User.IsInRole("Guardian"))
+                    @if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
                     {
-                        //shows all assessments done by attached student accounts
-                        <li>@Html.ActionLink("Review Assessments", "About", "Home")</li>
-                    }
-                    @if (User.IsInRole("Teacher"))
-                    {
-                        //shows a page with all available assessments with edit settings
-                        <li>@Html.ActionLink("Edit Assesments", "About", "Home")</li>
-                        //shows all assessments done by students
-                        <li>@Html.ActionLink("Gradebook", "About", "Home")</li>
-                    }
-                    @if (User.IsInRole("Student"))
-                    {
-                        //shows a page with all available assessments
-                        <li>@Html.ActionLink("Take Assessment", "About", "Home")</li>
-                        //shows all assessments that the student has takens
-                        <li>@Html.ActionLink("Review Assessments", "About", "Home")</li>
-                    }
-                    @if (User.IsInRole("Admin"))
-                    {
-                        //shows list of all users with options to remove and add new ones
-                        <li>@Html.ActionLink("Edit Users", "Index", "User")</li>
+                        <li>@Html.ActionLink("User Portal", "StudentPortal", "Home")</li>
+
+                        if (User.IsInRole("Guardian"))
+                        {
+                            //shows all assessments done by attached student accounts
+                            <li>@Html.ActionLink("Review Assessments", "About", "Home")</li>
+                        }
+
+                        if (User.IsInRole("Teacher"))
+                        {
+                            //shows a page with all available assessments with edit settings
+                            <li>@Html.ActionLink("Edit Assesments", "About", "Home")</li>
+                            //shows all assessments done by students
+                            <li>@Html.ActionLink("Gradebook", "About", "Home")</li>
+                        }
+
+                        if (User.IsInRole("Student"))
+                        {
+                            //shows a page with all available assessments
+                            <li>@Html.ActionLink("Take Assessment", "About", "Home")</li>
+                            //shows all assessments that the student has takens
+                            <li>@Html.ActionLink("Review Assessments", "About", "Home")</li>
+                        }
+
+                        if (User.IsInRole("Admin"))
+                        {
+                            //shows list of all users with options to remove and add new ones
+                            <li>@Html.ActionLink("Edit Users", "Index", "User")</li>
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
