@@ -44,5 +44,27 @@ namespace TestProject2.Controllers
             return View();
 
         }
+
+        [Authorize]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult AddConfirmed(string tier, string question, string answer)
+        {
+            int tierLevel = int.Parse(tier);
+            var mathQuestion = new Question();
+
+            mathQuestion.Tier = tierLevel;
+            mathQuestion.MathQuestion = question;
+            mathQuestion.Answer = answer;
+
+            _context.Questions.Add(mathQuestion);
+            _context.SaveChanges();
+
+            return View();
+        }
     }
 }

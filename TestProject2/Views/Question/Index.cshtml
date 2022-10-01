@@ -5,25 +5,27 @@
 
 <h2>Modify Question Pool</h2>
 
+@Html.ActionLink("Add Question", "Add")
+
 <table id="questions" class="table table-bordered table-hover">
     <thead>
-        <th>Tier</th>
-        <th>Question</th>
-        <th>Answer</th>
-        <th>Delete</th>
+    <th>Tier</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>Delete</th>
     </thead>
     <tbody>
         @foreach (var question in Model)
-            {
-                <tr>
-                    <td>@question.Tier</td>
-                    <td>@question.MathQuestion</td>
-                    <td>@question.Answer</td>
-                    <td>
-                        @Html.ActionLink("Delete", "Delete", new { id = question.Id })
-                    </td>
-                </tr>
-            }
+        {
+            <tr>
+                <td>@question.Tier</td>
+                <td>@question.MathQuestion</td>
+                <td>@question.Answer</td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = question.Id })
+                </td>
+            </tr>
+        }
     </tbody>
 
 </table>

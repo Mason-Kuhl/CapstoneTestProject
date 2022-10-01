@@ -1,0 +1,20 @@
+﻿@model TestProject2.Models.Question
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add Question</h2>
+
+@using (Html.BeginForm("AddConfirmed", "Question"))
+{
+    <p>Tier Level</p>
+    <input type="text" name="tier" />
+
+    <p>Question</p>
+    <input type="text" name="question" />
+
+    <p>Answer</p>
+    <input type="text" name="answer" />
+
+    <button type="submit">Add</button>
+}

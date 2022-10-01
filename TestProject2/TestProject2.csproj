@@ -319,6 +319,8 @@
     <Content Include="Views\Assessment\DrillResults.cshtml" />
     <Content Include="Views\Question\Index.cshtml" />
     <Content Include="Views\Question\Delete.cshtml" />
+    <Content Include="Views\Question\Add.cshtml" />
+    <Content Include="Views\Question\AddConfirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
