@@ -1,7 +1,28 @@
-﻿
+﻿@model TestProject2.Models.DrillViewModel
 @{
     ViewBag.Title = "DrillResults";
 }
 
-<h2>DrillResults</h2>
+@{ var questionCounter = 1; }
+
+<h2>Drill Results</h2>
+<p>If your answer is correct it will be displayed in green, otherwise, it will be displayed in red with the correct answer in bold</p>
+
+@for (int i = 0; i < Model.DrillQuestions.Count; i++)
+{
+    <h4>Question @questionCounter</h4>
+    if (Model.DrillQuestions[i].Answer == Model.UserAnswers[i])
+    {
+        @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion, new { Styles = "color: green" });<br />
+        <p>Your answer: </p>@Html.DisplayFor(model => model.UserAnswers[i]);<br /><br /><br />
+    }
+    else
+    {
+        @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);<br />
+        <p>Your answer: </p>@Html.DisplayFor(model => model.UserAnswers[i]);<br /><br />
+        <p>Correct answer: </p>@Html.DisplayFor(model => model.DrillQuestions[i].Answer);<br /><br /><br />
+    }
+
+    questionCounter = questionCounter + 1;
+}
 

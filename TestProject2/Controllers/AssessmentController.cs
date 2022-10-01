@@ -75,9 +75,17 @@ namespace TestProject2.Controllers
         {
             var correctAnswer1 = model.DrillQuestions[0].Answer;
             var userAnswer1 = model.UserAnswers[0];
+            var questions = model.DrillQuestions;
             var test = 0;
 
-            return View("DrillResults");
+            var dvm = new DrillViewModel();
+            dvm.StudentId = model.StudentId;
+            dvm.CurrentTier = model.CurrentTier;
+            dvm.DrillQuestions = model.DrillQuestions;
+            dvm.UserAnswers = model.UserAnswers;
+            
+
+            return View("DrillResults", dvm);
         }
     }
 }
