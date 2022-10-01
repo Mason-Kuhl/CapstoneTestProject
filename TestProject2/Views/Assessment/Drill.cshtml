@@ -10,16 +10,12 @@
     var answerList = new List<string> { };
 }
 
-@*@using (Html.BeginForm("DrillResults", "Assessment", FormMethod.Post))*@
-<form asp-action="Drill" method="post">
+@using (Html.BeginForm("Drill", "Assessment"))
+{
 
-
-    @Html.HiddenFor(m => m.CurrentTier)
-    @Html.HiddenFor(m => m.StudentId)
-    @Html.HiddenFor(m => m.DrillQuestions)
-
-    @foreach (var q in Model.DrillQuestions)
+    @*foreach (var q in Model.DrillQuestions)
     {
+
         <h4>Question @questionCounter:</h4>
 
         <h7>@q.MathQuestion</h7>
@@ -29,30 +25,35 @@
         <br />
         <br />
 
-        { questionCounter = questionCounter + 1; }
-    }
+        {
+            questionCounter = questionCounter + 1;
+        }
+    }*@
 
-    @*@Html.Hidden("currentTier", Model.CurrentTier)
-    @Html.Hidden("studentId", Model.StudentId)
-    @Html.Hidden("questions", Model.DrillQuestions)*@
 
-    @{ var modelList = new List<Question>(); }
 
-    @for (int i = 0; i < Model.DrillQuestions.Count; i++)
+    //Html.HiddenFor(m => m.CurrentTier);
+    //Html.HiddenFor(m => m.StudentId);
+
+    for (int i = 0; i < Model.DrillQuestions.Count; i++)
     {
-        modelList.Add(Model.DrillQuestions[i]);
+        <h4>Question @questionCounter:</h4>
+        @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);
+        @Html.TextBoxFor(model => model.UserAnswers[i]);
+
+        @Html.HiddenFor(model => model.DrillQuestions[i].Id);
+        @Html.HiddenFor(model => model.DrillQuestions[i].Tier);
+        @Html.HiddenFor(model => model.DrillQuestions[i].MathQuestion);
+        @Html.HiddenFor(model => model.DrillQuestions[i].Answer);
+
+        @Html.HiddenFor(m => m.CurrentTier);
+        @Html.HiddenFor(m => m.StudentId);
+
+        questionCounter = questionCounter + 1;
     }
 
-    @{ Model.DrillQuestions = modelList; }
+    <button type="submit">Sumbit</button>
+}
 
-    <input type="hidden" name="qList" value="@modelList" />
-
-    @{
-        TempData["question_List"] = Model.DrillQuestions;
-    }
-
-    <input type="submit" value="Submit1"/>
-
-</form>
 
 

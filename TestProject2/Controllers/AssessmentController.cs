@@ -71,10 +71,11 @@ namespace TestProject2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Drill(DrillViewModel model, List<Question> qList)
+        public ActionResult Drill(DrillViewModel model)
         {
-            // the question_List variable is null, but if you hover over TempData you can see the list of questions
-            var question_List = TempData["question_List"] as List<Question>;
+            var correctAnswer1 = model.DrillQuestions[0].Answer;
+            var userAnswer1 = model.UserAnswers[0];
+            var test = 0;
 
             return View("DrillResults");
         }
