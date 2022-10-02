@@ -1,0 +1,59 @@
+﻿@using TestProject2.Models
+@using Newtonsoft.Json
+@model TestProject2.Models.DrillViewModel
+@{ ViewBag.Title = "Test"; }
+
+<h2>Drill</h2>
+
+@{
+    var questionCounter = 1;
+    var answerList = new List<string> { };
+}
+
+@using (Html.BeginForm("Test", "Assessment"))
+{
+
+    @*foreach (var q in Model.DrillQuestions)
+    {
+
+        <h4>Question @questionCounter:</h4>
+
+        <h7>@q.MathQuestion</h7>
+        <br />
+        <input type="text" id="idTxtAnswer_@questionCounter" name="txtAnswer_@questionCounter" />
+        <br />
+        <br />
+        <br />
+
+        {
+            questionCounter = questionCounter + 1;
+        }
+    }*@
+
+
+
+    //Html.HiddenFor(m => m.CurrentTier);
+    //Html.HiddenFor(m => m.StudentId);
+
+    for (int i = 0; i < Model.DrillQuestions.Count; i++)
+    {
+        <h4>Question @questionCounter:</h4>
+        @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);
+        @Html.TextBoxFor(model => model.UserAnswers[i]);
+
+        @Html.HiddenFor(model => model.DrillQuestions[i].Id);
+        @Html.HiddenFor(model => model.DrillQuestions[i].Tier);
+        @Html.HiddenFor(model => model.DrillQuestions[i].MathQuestion);
+        @Html.HiddenFor(model => model.DrillQuestions[i].Answer);
+
+        @Html.HiddenFor(m => m.CurrentTier);
+        @Html.HiddenFor(m => m.StudentId);
+
+        questionCounter = questionCounter + 1;
+    }
+<br />
+    <button type="submit">Submit</button>
+}
+
+
+

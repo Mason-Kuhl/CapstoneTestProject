@@ -20,6 +20,12 @@ namespace TestProject2.Controllers
             return View(db.Gradebooks.ToList());
         }
 
+        // GET: Gradebooks
+        public ActionResult IndexByStudentID()
+        {
+            return View(db.Gradebooks.ToList());
+        }
+
         // GET: Gradebooks/Details/5
         public ActionResult Details(int? id)
         {
