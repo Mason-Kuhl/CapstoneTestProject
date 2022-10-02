@@ -13,14 +13,23 @@
     <h4>Question @questionCounter</h4>
     if (Model.DrillQuestions[i].Answer == Model.UserAnswers[i])
     {
-        @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion, new { Styles = "color: green" });<br />
-        <p>Your answer: </p>@Html.DisplayFor(model => model.UserAnswers[i]);<br /><br /><br />
+        <span style="color:green">
+            @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);
+            <br />
+            <p>Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</p>
+            <br />
+        </span>
     }
     else
     {
-        @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);<br />
-        <p>Your answer: </p>@Html.DisplayFor(model => model.UserAnswers[i]);<br /><br />
-        <p>Correct answer: </p>@Html.DisplayFor(model => model.DrillQuestions[i].Answer);<br /><br /><br />
+        <span style="color:red">
+            @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);
+            <br />
+            <p>Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</p>
+            <br />
+            <p>Correct answer: @Html.DisplayFor(model => model.DrillQuestions[i].Answer)</p>
+            <br />
+        </span>
     }
 
     questionCounter = questionCounter + 1;
