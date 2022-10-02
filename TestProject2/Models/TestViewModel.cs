@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
-using TestProject2.Models;
 
-namespace TestProject2.Controllers
+namespace TestProject2.Models
 {
     public class TestViewModel
     {
-        public int Id { get; set; }
-        public int Tier { get; set; }
-        public int AmountOfQuestions { get; set; }
-        public List<Question> Questions { get; set; }
+        public int StudentId { get; set; }
+        public int CurrentTier { get; set; }
+        public List<Question> TestQuestions { get; set; }
+        public List<string> UserAnswers { get; set; }
 
     }
 }

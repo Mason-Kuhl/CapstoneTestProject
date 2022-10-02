@@ -1,9 +1,9 @@
 ﻿@using TestProject2.Models
 @using Newtonsoft.Json
-@model TestProject2.Models.DrillViewModel
+@model TestProject2.Models.TestViewModel
 @{ ViewBag.Title = "Test"; }
 
-<h2>Drill</h2>
+<h2>Tier @Model.CurrentTier Test</h2>
 
 @{
     var questionCounter = 1;
@@ -35,16 +35,16 @@
     //Html.HiddenFor(m => m.CurrentTier);
     //Html.HiddenFor(m => m.StudentId);
 
-    for (int i = 0; i < Model.DrillQuestions.Count; i++)
+    for (int i = 0; i < Model.TestQuestions.Count; i++)
     {
         <h4>Question @questionCounter:</h4>
-        @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);
+        @Html.DisplayFor(model => model.TestQuestions[i].MathQuestion);
         @Html.TextBoxFor(model => model.UserAnswers[i]);
 
-        @Html.HiddenFor(model => model.DrillQuestions[i].Id);
-        @Html.HiddenFor(model => model.DrillQuestions[i].Tier);
-        @Html.HiddenFor(model => model.DrillQuestions[i].MathQuestion);
-        @Html.HiddenFor(model => model.DrillQuestions[i].Answer);
+        @Html.HiddenFor(model => model.TestQuestions[i].Id);
+        @Html.HiddenFor(model => model.TestQuestions[i].Tier);
+        @Html.HiddenFor(model => model.TestQuestions[i].MathQuestion);
+        @Html.HiddenFor(model => model.TestQuestions[i].Answer);
 
         @Html.HiddenFor(m => m.CurrentTier);
         @Html.HiddenFor(m => m.StudentId);

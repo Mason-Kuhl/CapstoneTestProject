@@ -58,19 +58,6 @@ namespace TestProject2.Controllers
         }
 
         [HttpPost]
-        public ActionResult DrillResults(DrillViewModel dvm, string txtAnswer_1, string txtAnswer_2, string txtAnswer_3, string txtAnswer_4, string txtAnswer_5, int currentTier, int studentId, List<Question> questions)
-        {
-            string answer1 = txtAnswer_1;
-            string answer2 = txtAnswer_2;
-            string answer3 = txtAnswer_3;
-            string answer4 = txtAnswer_4;
-            string answer5 = txtAnswer_5;
-            string correctAnswer1 = dvm.DrillQuestions[1].Answer;
-            
-            return View();
-        }
-
-        [HttpPost]
         public ActionResult Drill(DrillViewModel model)
         {
             var correctAnswer1 = model.DrillQuestions[0].Answer;
@@ -87,6 +74,11 @@ namespace TestProject2.Controllers
 
             return View("DrillResults", dvm);
         }
+
+
+
+
+
 
         //test actions
 
@@ -98,57 +90,32 @@ namespace TestProject2.Controllers
             var currentTier = user.CurrentTier;
             var tvm = new TestViewModel();
 
-            var questionsList = _context.Questions.Where(t => t.Tier == currentTier).ToList();
-            var drillQuestions = new List<Question> { };
-            var amountOfQuestions = questionsList.Count - 1;
-            var count = 0;
-            Random rnd = new Random();
-
-            while (count < 5)
-            {
-                int randomNumber = rnd.Next(0, amountOfQuestions);
-                drillQuestions.Add(questionsList[randomNumber]);
-                questionsList.RemoveAt(randomNumber);
-                amountOfQuestions--;
-                count++;
-            }
+            var testQuestions = _context.Questions.Where(t => t.Tier == currentTier).ToList();
 
             tvm.StudentId = user.StudentId;
             tvm.CurrentTier = currentTier;
-            tvm.DrillQuestions = drillQuestions;
+            tvm.TestQuestions = testQuestions;
 
             return View(tvm);
         }
 
         [HttpPost]
-        public ActionResult DrillResults(DrillViewModel dvm, string txtAnswer_1, string txtAnswer_2, string txtAnswer_3, string txtAnswer_4, string txtAnswer_5, int currentTier, int studentId, List<Question> questions)
+        public ActionResult Test(TestViewModel model)
         {
-            string answer1 = txtAnswer_1;
-            string answer2 = txtAnswer_2;
-            string answer3 = txtAnswer_3;
-            string answer4 = txtAnswer_4;
-            string answer5 = txtAnswer_5;
-            string correctAnswer1 = dvm.DrillQuestions[1].Answer;
+            var correctAnswer1 = model.TestQuestions[0].Answer;
+            //var userAnswer1 = model.UserAnswers[0];
+            //var questions = model.DrillQuestions;
+            //var test = 0;
 
-            return View();
-        }
+            var tvm = new TestViewModel();
+            tvm.StudentId = model.StudentId;
+            tvm.CurrentTier = model.CurrentTier;
+            tvm.TestQuestions = model.TestQuestions;
+            tvm.UserAnswers = model.UserAnswers;
 
-        [HttpPost]
-        public ActionResult Drill(DrillViewModel model)
-        {
-            var correctAnswer1 = model.DrillQuestions[0].Answer;
-            var userAnswer1 = model.UserAnswers[0];
-            var questions = model.DrillQuestions;
             var test = 0;
 
-            var dvm = new DrillViewModel();
-            dvm.StudentId = model.StudentId;
-            dvm.CurrentTier = model.CurrentTier;
-            dvm.DrillQuestions = model.DrillQuestions;
-            dvm.UserAnswers = model.UserAnswers;
-
-
-            return View("DrillResults", dvm);
+            return View("TestResults",tvm);
         }
     }
 }
