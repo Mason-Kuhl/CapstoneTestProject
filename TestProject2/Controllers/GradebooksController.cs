@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -12,18 +13,29 @@ namespace TestProject2.Controllers
 {
     public class GradebooksController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext _context;
+
+        public GradebooksController()
+        {
+            _context = new ApplicationDbContext();
+        }
 
         // GET: Gradebooks
         public ActionResult Index()
         {
-            return View(db.Gradebooks.ToList());
+            var id = User.Identity.GetUserId();
+            var user = _context.Users.Find(id);
+            var studentId = user.StudentId;
+
+            var studentGradebook = _context.Gradebooks.Where(u => u.StudentId == studentId).ToList();
+
+            return View(studentGradebook);
         }
 
         // GET: Gradebooks
         public ActionResult IndexByStudentID()
         {
-            return View(db.Gradebooks.ToList());
+            return View(_context.Gradebooks.ToList());
         }
 
         // GET: Gradebooks/Details/5
@@ -33,7 +45,7 @@ namespace TestProject2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Gradebook gradebook = db.Gradebooks.Find(id);
+            Gradebook gradebook = _context.Gradebooks.Find(id);
             if (gradebook == null)
             {
                 return HttpNotFound();
@@ -56,8 +68,8 @@ namespace TestProject2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Gradebooks.Add(gradebook);
-                db.SaveChanges();
+                _context.Gradebooks.Add(gradebook);
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +83,7 @@ namespace TestProject2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Gradebook gradebook = db.Gradebooks.Find(id);
+            Gradebook gradebook = _context.Gradebooks.Find(id);
             if (gradebook == null)
             {
                 return HttpNotFound();
@@ -88,8 +100,8 @@ namespace TestProject2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(gradebook).State = EntityState.Modified;
-                db.SaveChanges();
+                _context.Entry(gradebook).State = EntityState.Modified;
+                _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(gradebook);
@@ -102,7 +114,7 @@ namespace TestProject2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Gradebook gradebook = db.Gradebooks.Find(id);
+            Gradebook gradebook = _context.Gradebooks.Find(id);
             if (gradebook == null)
             {
                 return HttpNotFound();
@@ -115,9 +127,9 @@ namespace TestProject2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Gradebook gradebook = db.Gradebooks.Find(id);
-            db.Gradebooks.Remove(gradebook);
-            db.SaveChanges();
+            Gradebook gradebook = _context.Gradebooks.Find(id);
+            _context.Gradebooks.Remove(gradebook);
+            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -125,7 +137,7 @@ namespace TestProject2.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _context.Dispose();
             }
             base.Dispose(disposing);
         }

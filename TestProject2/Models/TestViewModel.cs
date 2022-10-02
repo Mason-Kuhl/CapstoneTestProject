@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TestProject2.Models
 {
@@ -8,6 +9,8 @@ namespace TestProject2.Models
         public int CurrentTier { get; set; }
         public List<Question> TestQuestions { get; set; }
         public List<string> UserAnswers { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
 
     }
 }

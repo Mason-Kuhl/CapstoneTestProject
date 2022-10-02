@@ -88,6 +88,7 @@ namespace TestProject2.Controllers
             var id = User.Identity.GetUserId();
             var user = _context.Users.Find(id);
             var currentTier = user.CurrentTier;
+            var startTime = DateTime.Now;
             var tvm = new TestViewModel();
 
             var testQuestions = _context.Questions.Where(t => t.Tier == currentTier).ToList();
@@ -95,6 +96,7 @@ namespace TestProject2.Controllers
             tvm.StudentId = user.StudentId;
             tvm.CurrentTier = currentTier;
             tvm.TestQuestions = testQuestions;
+            tvm.StartTime = startTime;
 
             return View(tvm);
         }
@@ -102,18 +104,41 @@ namespace TestProject2.Controllers
         [HttpPost]
         public ActionResult Test(TestViewModel model)
         {
-            var correctAnswer1 = model.TestQuestions[0].Answer;
-            //var userAnswer1 = model.UserAnswers[0];
-            //var questions = model.DrillQuestions;
-            //var test = 0;
+            var endTime = DateTime.Now;
+            var numberOfQuestions = model.TestQuestions.Count;
+            var correctAnswers = 0;
 
             var tvm = new TestViewModel();
             tvm.StudentId = model.StudentId;
             tvm.CurrentTier = model.CurrentTier;
             tvm.TestQuestions = model.TestQuestions;
             tvm.UserAnswers = model.UserAnswers;
+            tvm.StartTime = model.StartTime;
+            tvm.EndTime = endTime;
 
-            var test = 0;
+            var minutes = (endTime - model.StartTime).TotalMinutes;
+            minutes = Math.Round(minutes, 1);
+
+            for (int i = 0; i < model.TestQuestions.Count; i++)
+            {
+                if (model.UserAnswers[i] == model.TestQuestions[i].Answer)
+                {
+                    correctAnswers++;
+                }
+            }
+            double percentGrade = (Double.Parse(correctAnswers.ToString()) / Double.Parse(numberOfQuestions.ToString())) * 100;
+            //percentGrade = Math.Round(percentGrade, 2);
+
+            Gradebook gradebook = new Gradebook();
+            gradebook.StudentId = model.StudentId;
+            gradebook.DateTaken = model.StartTime;
+            gradebook.Correct = correctAnswers;
+            gradebook.Amount = numberOfQuestions;
+            gradebook.PercentGrade = percentGrade;
+            gradebook.Minutes = minutes;
+
+            _context.Gradebooks.Add(gradebook);
+            _context.SaveChanges();
 
             return View("TestResults",tvm);
         }

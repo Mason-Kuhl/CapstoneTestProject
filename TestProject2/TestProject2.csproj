@@ -173,6 +173,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Migrations\202210020811314_changedPercentToDoubleInGradebook.cs" />
+    <Compile Include="Migrations\202210020811314_changedPercentToDoubleInGradebook.Designer.cs">
+      <DependentUpon>202210020811314_changedPercentToDoubleInGradebook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202210020818087_changedTotalMinutesToDoubleInGradebook.cs" />
+    <Compile Include="Migrations\202210020818087_changedTotalMinutesToDoubleInGradebook.Designer.cs">
+      <DependentUpon>202210020818087_changedTotalMinutesToDoubleInGradebook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\TestViewModel.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -393,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202209272105340_AddedColumnsToQuestionsClass.resx">
       <DependentUpon>202209272105340_AddedColumnsToQuestionsClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210020811314_changedPercentToDoubleInGradebook.resx">
+      <DependentUpon>202210020811314_changedPercentToDoubleInGradebook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202210020818087_changedTotalMinutesToDoubleInGradebook.resx">
+      <DependentUpon>202210020818087_changedTotalMinutesToDoubleInGradebook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

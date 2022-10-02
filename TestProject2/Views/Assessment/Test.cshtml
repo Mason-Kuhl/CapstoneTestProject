@@ -13,28 +13,6 @@
 @using (Html.BeginForm("Test", "Assessment"))
 {
 
-    @*foreach (var q in Model.DrillQuestions)
-    {
-
-        <h4>Question @questionCounter:</h4>
-
-        <h7>@q.MathQuestion</h7>
-        <br />
-        <input type="text" id="idTxtAnswer_@questionCounter" name="txtAnswer_@questionCounter" />
-        <br />
-        <br />
-        <br />
-
-        {
-            questionCounter = questionCounter + 1;
-        }
-    }*@
-
-
-
-    //Html.HiddenFor(m => m.CurrentTier);
-    //Html.HiddenFor(m => m.StudentId);
-
     for (int i = 0; i < Model.TestQuestions.Count; i++)
     {
         <h4>Question @questionCounter:</h4>
@@ -48,10 +26,11 @@
 
         @Html.HiddenFor(m => m.CurrentTier);
         @Html.HiddenFor(m => m.StudentId);
+        @Html.HiddenFor(m => m.StartTime);
 
         questionCounter = questionCounter + 1;
     }
-<br />
+    <br />
     <button type="submit">Submit</button>
 }
 

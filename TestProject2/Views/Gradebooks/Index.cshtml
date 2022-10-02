@@ -4,66 +4,30 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Your Gradebook</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AssesmentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTaken)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Correct)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Amount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PercentGrade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalMinutes)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssesmentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTaken)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Correct)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PercentGrade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalMinutes)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Date Taken</th>
+            <th>Correct Answers</th>
+            <th>Questions Amount</th>
+            <th>% Grade</th>
+            <th>Total Minutes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var grade in Model)
+        {
+            <tr>
+                <td>@grade.DateTaken</td>
+                <td>@grade.Correct</td>
+                <td>@grade.Amount</td>
+                <td>@grade.PercentGrade</td>
+                <td>@grade.Minutes</td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+

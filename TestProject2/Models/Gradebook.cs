@@ -17,8 +17,8 @@ namespace TestProject2.Models
         public DateTime DateTaken { get; set; }
         public int? Correct { get; set; }
         public int? Amount { get; set; }
-        public int? PercentGrade { get; set; }
-        public DateTime TotalMinutes { get; set; }
+        public double? PercentGrade { get; set; }
+        public double Minutes { get; set; }
         public List<Question> QuestionsCorrect { get; set; }
         public List<Question> QuestionsWrong { get; set; }
     }
