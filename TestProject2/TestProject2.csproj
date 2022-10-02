@@ -330,7 +330,7 @@
     <Content Include="Views\Gradebooks\Index.cshtml" />
     <Content Include="Views\Gradebooks\IndexByStudentID.cshtml" />
     <Content Include="Views\Assessment\Test.cshtml" />
-    <Content Include="Views\Assessment\TestResulsts.cshtml" />
+    <Content Include="Views\Assessment\TestResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

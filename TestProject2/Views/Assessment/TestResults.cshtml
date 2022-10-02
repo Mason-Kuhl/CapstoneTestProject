@@ -1,20 +1,20 @@
-﻿@model TestProject2.Models.DrillViewModel
+﻿@model TestProject2.Models.TestViewModel
 @{
-    ViewBag.Title = "DrillResults";
+    ViewBag.Title = "TestResults";
 }
 
 @{ var questionCounter = 1; }
 
-<h2>Drill Results</h2>
+<h2>Test Results</h2>
 <p>If your answer is correct it will be displayed in green, otherwise, it will be displayed in red with the correct answer in bold</p>
 
-@for (int i = 0; i < Model.DrillQuestions.Count; i++)
+@for (int i = 0; i < Model.TestQuestions.Count; i++)
 {
     <h4>Question @questionCounter</h4>
-    if (Model.DrillQuestions[i].Answer == Model.UserAnswers[i])
+    if (Model.TestQuestions[i].Answer == Model.UserAnswers[i])
     {
         <span style="color:green">
-            @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);
+            @Html.DisplayFor(model => model.TestQuestions[i].MathQuestion);
             <br />
             <p>Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</p>
             <br />
@@ -23,11 +23,11 @@
     else
     {
         <span style="color:red">
-            @Html.DisplayFor(model => model.DrillQuestions[i].MathQuestion);
+            @Html.DisplayFor(model => model.TestQuestions[i].MathQuestion);
             <br />
             <p>Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</p>
             <br />
-            <p>Correct answer: @Html.DisplayFor(model => model.DrillQuestions[i].Answer)</p>
+            <p>Correct answer: @Html.DisplayFor(model => model.TestQuestions[i].Answer)</p>
             <br />
         </span>
     }
