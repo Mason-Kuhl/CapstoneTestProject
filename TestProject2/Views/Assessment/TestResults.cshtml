@@ -3,8 +3,11 @@
     ViewBag.Title = "TestResults";
 }
 
-@{ var questionCounter = 1; }
-@{ var scoreCounter = 0; }
+@{
+    var questionCounter = 1;
+    var scoreCounter = 0;
+    TimeSpan totalTime = Model.EndTime - Model.StartTime;
+}
 
 <h2>Test Results</h2>
 <p>If your answer is correct it will be displayed in green, otherwise, it will be displayed in red with the correct answer in bold</p>
@@ -36,5 +39,6 @@
     questionCounter++;
 }
 
-@{ questionCounter--; }
-<h3><b>Score: @scoreCounter/@questionCounter</b></h3>
+<br />
+<h4><b>Score: @scoreCounter/@Model.TestQuestions.Count</b></h4>
+<h4><b>Time Taken: @Convert.ToInt32(totalTime.TotalMinutes) Minutes @totalTime.Seconds Seconds</b></h4>
