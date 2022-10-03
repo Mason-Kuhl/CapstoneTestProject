@@ -13,7 +13,13 @@
     <h4>Your Children:</h4>
     foreach (var student in Model.StudentIds)
     {
-        <p>Student ID: @student.StudentId</p>
+        using (Html.BeginForm("IndexByStudentID", "Gradebooks"))
+        {
+            <p>Student ID: @student.StudentId</p>
+            <input type="hidden" value="@student.StudentId" name="studentId"/>
+            <input type="submit" value="View Gradebook" />
+        }
+
         <h3>Gradebook:</h3>
         //link to that persons gradebook
         <p>@Html.ActionLink("Review Old Assessments", "IndexByStudentID", "Gradebooks")</p>
@@ -27,7 +33,7 @@
     <br />
     <h3>Gradebook</h3>
     //link to that persons gradebook
-    <p>@Html.ActionLink("Review Old Assessments", "IndexByStudentID", "Gradebooks")</p>
+    <p>@Html.ActionLink("Review Old Assessments", "Index", "Gradebooks")</p>
 }
 
 @if (Model.User.Role == "Admin")

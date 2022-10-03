@@ -33,9 +33,12 @@ namespace TestProject2.Controllers
         }
 
         // GET: Gradebooks
-        public ActionResult IndexByStudentID()
+        public ActionResult IndexByStudentID(int studentId)
         {
-            return View(_context.Gradebooks.ToList());
+            var sId = studentId;
+
+            var studentGradebook = _context.Gradebooks.Where(u => u.StudentId == sId).ToList();
+            return View("Index", studentGradebook);
         }
 
         // GET: Gradebooks/Details/5
