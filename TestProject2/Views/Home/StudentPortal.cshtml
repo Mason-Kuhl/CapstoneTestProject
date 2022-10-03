@@ -39,12 +39,6 @@
     <h3>Edit all users</h3>
     //link to db index of all users
     <p>@Html.ActionLink("Edit Users", "Index", "User")</p>
-    <h3>Edit all grades</h3>
-    //link to db index of all grades
-    <p>@Html.ActionLink("Edit Grades", "Index", "Gradebooks")</p>
-    <h3>Edit all questions</h3>
-    //link to db index of all questions
-    <p>@Html.ActionLink("Edit Questions", "Index", "Question")</p>
 }
 
 @if (Model.User.Role == "Teacher")
@@ -54,7 +48,7 @@
     <p>@Html.ActionLink("Edit Students", "IndexLimitedStudents", "User")</p>
     <h3>View gradebook</h3>
     //link to db index of all grades
-    <p>@Html.ActionLink("Gradebook", "Index", "Gradebooks")</p>
+    <p>@Html.ActionLink("Class Gradebook", "ClassGrades", "Gradebooks")</p>
     <h3>Edit all questions</h3>
     //link to db index of all questions
     <p>@Html.ActionLink("Edit Questions", "Index", "Question")</p>

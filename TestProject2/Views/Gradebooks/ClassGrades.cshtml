@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Gradebook</h2>
+<h2>Class Gradebook</h2>
 
 @{
     double? runningTotal = 0;
@@ -15,6 +15,7 @@
     <thead>
         <tr>
             <th>Date Taken</th>
+            <th>Student ID</th>
             <th>Correct Answers</th>
             <th>Questions Amount</th>
             <th>% Grade</th>
@@ -26,6 +27,7 @@
         {
             <tr>
                 <td>@grade.DateTaken</td>
+                <td>@grade.StudentId</td>
                 <td>@grade.Correct</td>
                 <td>@grade.Amount</td>
                 <td>@grade.PercentGrade</td>
@@ -39,11 +41,12 @@
     </tbody>
 </table>
 
-@{ 
+@{
     var avgGrade = runningTotal / amountOfQuestions;
+    avgGrade = Double.Parse(avgGrade.ToString());
+    var avgGradeString = avgGrade.ToString();
+    avgGrade = Math.Round(Double.Parse(avgGradeString), 2);
 }
 
-<h3>Your Test Avgerage:</h3>
+<h3>Your Class Avgerage:</h3>
 <h4>@avgGrade%</h4>
-
-

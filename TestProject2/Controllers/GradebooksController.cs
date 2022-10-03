@@ -41,6 +41,14 @@ namespace TestProject2.Controllers
             return View("Index", studentGradebook);
         }
 
+        public ActionResult ClassGrades()
+        {
+            var studentGradebook = _context.Gradebooks.OrderBy(u => u.DateTaken).ToList();
+
+            return View(studentGradebook);
+        }
+
+
         // GET: Gradebooks/Details/5
         public ActionResult Details(int? id)
         {
