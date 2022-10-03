@@ -45,4 +45,6 @@
 
 <br />
 <h4><b>Score: @scoreCounter/@Model.TestQuestions.Count</b></h4>
-<h4><b>Time Taken: @Convert.ToInt32(totalTime.TotalMinutes) Minutes @totalTime.Seconds Seconds</b></h4>
+<h4><b>Time Taken: @Math.Floor(totalTime.TotalMinutes) Minutes @totalTime.Seconds Seconds</b></h4>
+<br />
+<a class="btn btn-default" href="~/Gradebooks/Index">Gradebook &raquo;</a>
