@@ -10,30 +10,34 @@
 }
 
 <h2>Test Results</h2>
-<p>If your answer is correct it will be displayed in green, otherwise, it will be displayed in red with the correct answer in bold</p>
+<p>If your answer is correct it will be displayed in green, otherwise, it will be displayed in red with the correct answer in bold.</p>
 
 @for (int i = 0; i < Model.TestQuestions.Count; i++)
 {
     <br />
     if (Model.TestQuestions[i].Answer == Model.UserAnswers[i])
     {
-        <h4>&#9989;Question @questionCounter</h4>
-        @Html.DisplayFor(model => model.TestQuestions[i].MathQuestion);
-        <br />
-        <span style="color:green">
-            <p>Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</p>
-        </span>
+        <h4>&#9989; <b>Question @questionCounter</b></h4>
+        <ul style="list-style:none">
+            <li>@Html.DisplayFor(model => model.TestQuestions[i].MathQuestion)</li>
+            <li>
+                <span style="color:green">Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</span>
+            </li>
+        </ul>
         scoreCounter++;
     }
     else
     {
-        <h4>&#10060; Question @questionCounter</h4>
-        @Html.DisplayFor(model => model.TestQuestions[i].MathQuestion);
-        <br />
-        <p><b>Correct answer: @Html.DisplayFor(model => model.TestQuestions[i].Answer)</b></p>
-        <span style="color:red">
-            <p>Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</p>
-        </span>
+        <h4>&#10060; <b>Question @questionCounter</b></h4>
+        <ul style="list-style:none">
+            <li>@Html.DisplayFor(model => model.TestQuestions[i].MathQuestion)</li>
+            <li>
+                <span style="color:red">Your answer: @Html.DisplayFor(model => model.UserAnswers[i])</span>
+            </li>
+            <li>
+                <b>Correct answer: @Html.DisplayFor(model => model.TestQuestions[i].Answer)</b>
+            </li>
+        </ul>
     }
 
     questionCounter++;
