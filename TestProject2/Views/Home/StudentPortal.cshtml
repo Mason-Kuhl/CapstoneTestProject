@@ -1,6 +1,6 @@
 ﻿@model TestProject2.Models.StudentPortalViewModel
 @{
-    ViewBag.Title = "Student Portal";
+    ViewBag.Title = "User Portal";
 }
 
 <h1>User Portal</h1>
@@ -15,18 +15,45 @@
     {
         <p>Student ID: @student.StudentId</p>
         <h3>Gradebook:</h3>
-        //temp
-        <p>@Html.ActionLink("Review Old Assessments", "Index", "Assessment")</p>
+        //link to that persons gradebook
+        <p>@Html.ActionLink("Review Old Assessments", "IndexByStudentID", "Gradebooks")</p>
     }
 }
 
 @if (Model.User.Role == "Student")
 {
+    //link to test and drill index
     <p>@Html.ActionLink("Take New Assessments Or Practice", "Index", "Assessment")</p>
     <br />
     <h3>Gradebook</h3>
-    //temp
-    <p>@Html.ActionLink("Review Old Assessments", "Index", "Assessment")</p>
+    //link to that persons gradebook
+    <p>@Html.ActionLink("Review Old Assessments", "IndexByStudentID", "Gradebooks")</p>
+}
+
+@if (Model.User.Role == "Admin")
+{
+    <h3>Edit all users</h3>
+    //link to db index of all users
+    <p>@Html.ActionLink("Edit Users", "Index", "User")</p>
+    <h3>Edit all grades</h3>
+    //link to db index of all grades
+    <p>@Html.ActionLink("Edit Grades", "Index", "Gradebooks")</p>
+    <h3>Edit all questions</h3>
+    //link to db index of all questions
+    <p>@Html.ActionLink("Edit Questions", "Index", "Question")</p>
+}
+
+@if (Model.User.Role == "Teacher")
+{
+    <h3>See all Students</h3>
+    //link to db index of all users limited to students
+    <p>@Html.ActionLink("Edit Students", "IndexLimitedStudents", "User")</p>
+    <h3>View gradebook</h3>
+    //link to db index of all grades
+    <p>@Html.ActionLink("Gradebook", "Index", "Gradebooks")</p>
+    <h3>Edit all questions</h3>
+    //link to db index of all questions
+    <p>@Html.ActionLink("Edit Questions", "Index", "Question")</p>
 }
 
 
